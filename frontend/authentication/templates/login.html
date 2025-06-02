@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+<section class="h-100 d-flex justify-content-center align-items-center login-section">
+    <div class="w-25 px-4 py-2 border login-container">
+        <div class="p-2 text-center login-container-header">
+            <h1>Login</h1>
+        </div>
+
+        <div class="login-container-body">
+            <form class="login-form-content" method="post">
+                {% csrf_token %}
+                
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        {% for error, message in form.errors.items %}
+                            <p>{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <div class="my-2 form-group">
+                    {{ form.email }}
+                </div>
+
+                <div class="my-2 form-group">
+                    {{ form.password }}
+                </div>
+
+                <div class="w-100 d-flex justify-content-center login-button-container">
+                    <input class="btn btn-success w-25" type="submit" value="Entrar">
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
