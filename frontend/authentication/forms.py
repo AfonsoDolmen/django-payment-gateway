@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.models import User
 from email_validator import validate_email, EmailNotValidError
 import re
 
@@ -63,6 +64,10 @@ class RegisterForm(forms.Form):
             email = validate_email(email, check_deliverability=False).email
         except EmailNotValidError:
             raise forms.ValidationError('Digite um e-mail válido.')
+
+        # Verifica se há um email cadastrado
+        if User.objects.filter(username=email).exists():
+            raise forms.ValidationError('Já há um usuário com este e-mail.')
 
         return email
 
