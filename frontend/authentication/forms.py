@@ -18,6 +18,9 @@ class LoginForm(forms.Form):
         }))
 
     def clean(self):
+        """
+        Valida o email
+        """
         cleaned_data = super().clean()
 
         email = cleaned_data.get('email', '')
@@ -47,6 +50,9 @@ class RegisterForm(forms.Form):
     }))
 
     def clean_email(self):
+        """
+        Valida o email
+        """
         email = self.cleaned_data.get('email', '')
 
         if email is None:
@@ -61,6 +67,9 @@ class RegisterForm(forms.Form):
         return email
 
     def clean(self):
+        """
+        Valida as senhas
+        """
         cleaned_data = super().clean()
 
         password = cleaned_data.get('password', '')
