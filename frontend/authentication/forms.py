@@ -14,7 +14,7 @@ class LoginForm(forms.Form):
 
     password = forms.CharField(
         max_length=250, widget=forms.PasswordInput(attrs={
-            'class': 'form-control w-100',
+            'class': 'form-control',
             'placeholder': 'Digite sua senha'
         }))
 
