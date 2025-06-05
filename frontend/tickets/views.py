@@ -1,17 +1,15 @@
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy
 from tickets.models import Ticket
 
 
-class TicketListView(ListView, LoginRequiredMixin):
+class TicketListView(LoginRequiredMixin, ListView):
     """
     View para listar todos os ingressos
     """
     model = Ticket
     template_name = 'tickets/ticket_list.html'
     context_object_name = 'tickets'
-    login_url = reverse_lazy('login')
 
     def get_queryset(self):
         """
@@ -27,11 +25,10 @@ class TicketListView(ListView, LoginRequiredMixin):
         return Ticket.objects.all()
 
 
-class TicketDetailView(DetailView, LoginRequiredMixin):
+class TicketDetailView(LoginRequiredMixin, DetailView):
     """
     View para exibir os detalhes de um ingresso específico
     """
     model = Ticket
     template_name = 'tickets/ticket_detail.html'
     context_object_name = 'ticket'
-    login_url = reverse_lazy('login')

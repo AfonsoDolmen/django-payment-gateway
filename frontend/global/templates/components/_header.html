@@ -1,0 +1,11 @@
+<header class="w-100 d-flex justify-content-between py-3 px-4">
+    <div class="logo-container">
+        <h1>Ingressos</h1>
+    </div>
+    {% if request.user.is_authenticated %}
+    <div class="d-flex gap-3 py-3 profile-info-container">
+        <p>Olá, {{ request.user.username }}!</p>
+        <a href="#">Meus Pedidos</a>
+    </div>
+    {% endif %}
+</header>

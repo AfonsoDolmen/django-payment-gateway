@@ -1,3 +1,4 @@
+from django.urls import reverse_lazy
 from pathlib import Path
 from os import getenv
 
@@ -91,6 +92,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Login URL
+
+LOGIN_URL = reverse_lazy('login')
 
 
 # Internationalization

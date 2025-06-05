@@ -1,6 +1,7 @@
 from django.views.generic import FormView, RedirectView
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.core.exceptions import ValidationError
 from django.urls import reverse_lazy
 from authentication.forms import LoginForm, RegisterForm
 
@@ -11,7 +12,7 @@ class AuthLoginView(FormView):
     """
     template_name = 'login.html'
     form_class = LoginForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('ticket-list')
 
     def form_valid(self, form):
         """
@@ -20,18 +21,12 @@ class AuthLoginView(FormView):
         email = form.cleaned_data.get('email', '')
         password = form.cleaned_data.get('password', '')
 
-        # Verifica se há usuário
-        try:
-            user = User.objects.get(username=email)
-            username = user.username
-        except User.DoesNotExist:
-            raise form.ValidationError('Usuário não encontrado.')
+        user = authenticate(self.request, username=email, password=password)
 
-        user = authenticate(self.request, username=username, password=password)
-
-        # Verifica as credenciais
-        if user is None:
-            raise form.ValidationError('Password Incorrect.')
+        # Verifica se o usuário foi encontrado
+        if not user:
+            form.add_error(None, ValidationError('Senha incorreta.'))
+            return self.form_invalid(form)
 
         # Autentica o usuário
         login(self.request, user)
@@ -42,7 +37,7 @@ class AuthLoginView(FormView):
 class AuthRegisterView(FormView):
     template_name = 'register.html'
     form_class = RegisterForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('ticket-list')
 
     def form_valid(self, form):
         """
