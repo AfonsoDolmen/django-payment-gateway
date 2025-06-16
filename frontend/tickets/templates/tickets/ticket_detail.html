@@ -30,8 +30,12 @@
                 </div>
             </div>
             <div class="d-flex gap-2">
-                <a href="{% url 'ticket-list' %}" class="btn btn-secondary">Voltar à lista</a>
-                <a href="#" class="btn btn-success">Comprar</a>
+                <form method="post" action="/orders/new/">
+                    {% csrf_token %}
+                    <input type="hidden" name="ticket_id" value="{{ ticket.id }}">
+                    <a href="{% url 'ticket-list' %}" class="btn btn-secondary">Voltar à lista</a>
+                    <button type="submit" class="btn btn-success">Comprar</button>
+                </form>
             </div>
         </div>
     </div>
