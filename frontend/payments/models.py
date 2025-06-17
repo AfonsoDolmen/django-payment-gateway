@@ -3,21 +3,8 @@ from django.contrib.auth.models import User
 
 
 class Payment(models.Model):
-    payment_id = models.CharField(
-        max_length=300, unique=True, verbose_name='ID do Pagamento')
-    type = models.CharField(max_length=100, default='online',
-                            verbose_name='Tipo do Pagamento')
-    status = models.CharField(
-        max_length=50, verbose_name='Status da Transação')
-    status_detail = models.CharField(
-        max_length=150, verbose_name='Detalhes da Transação')
-
-    total_amount = models.DecimalField(
-        max_digits=10, decimal_places=2, verbose_name='Valor Total')
-    total_paid_amount = models.DecimalField(
-        max_digits=10, decimal_places=2, verbose_name='Total Pago')
-
-    ticket_url = models.TextField(verbose_name='Link de Pagamento')
+    payment_id = models.TextField(unique=True, verbose_name='ID do Pagamento')
+    init_point = models.TextField(verbose_name='Link para Pagamento')
 
     user = models.ForeignKey(User, on_delete=models.PROTECT,
                              related_name='payments', verbose_name='Usuário')
