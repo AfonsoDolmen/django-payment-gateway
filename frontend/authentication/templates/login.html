@@ -31,8 +31,9 @@
                     {{ form.password }}
                 </div>
 
-                <div class="w-100 d-flex justify-content-center login-button-container">
+                <div class="w-100 d-flex justify-content-center gap-3 login-button-container">
                     <input class="btn btn-success w-25" type="submit" value="Entrar">
+                    <a class="btn btn-secondary w-25" href="{% url 'register' %}">Registrar</a>
                 </div>
             </form>
         </div>

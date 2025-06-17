@@ -4,6 +4,14 @@
 
 {% block content %}
 <section class="w-100 px-3 py-2 orders-section">
+    <div class="w-100 px-3">
+        <a class="my-3 btn btn-secondary" href="{% url 'ticket-list' %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+            </svg>
+            Voltar
+        </a>
+    </div>
     <div class="orders-container">
         {% if orders %}
             <table class="table table-striped table-bordered">
@@ -35,6 +43,10 @@
                     {% endfor %}
                 </tbody>
             </table>
+
+            <div class="w-100 d-flex justify-content-center payment-link-container">
+                <a class="btn btn-primary" href="{% url 'new-payment' %}">Comprar</a>
+            </div>
         {% else %}
             <p class="text-center">Sem pedidos, por enquanto.</p>
         {% endif %}
