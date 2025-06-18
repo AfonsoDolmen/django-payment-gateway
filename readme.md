@@ -1,5 +1,12 @@
 # 🎟️ Django Ticket Store
 
+[![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)](https://www.python.org/)
+[![Django](https://img.shields.io/badge/Django-4.x-success?logo=django)](https://www.djangoproject.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue?logo=postgresql)](https://www.postgresql.org/)
+[![Docker](https://img.shields.io/badge/Docker-Container-blue?logo=docker)](https://www.docker.com/)
+[![AWS EC2](https://img.shields.io/badge/AWS-EC2-orange?logo=amazon-aws)](https://aws.amazon.com/ec2/)
+[![Mercado Pago API](https://img.shields.io/badge/Mercado%20Pago-API-blueviolet?logo=mercadopago)](https://www.mercadopago.com.br/developers/pt/guides)
+
 Sistema web para gestão de ingressos e pagamentos via Mercado Pago. Os usuários podem visualizar eventos, adquirir ingressos, gerar pedidos (Orders) e realizar pagamentos de forma segura e integrada.
 
 ---
@@ -17,7 +24,7 @@ Sistema web para gestão de ingressos e pagamentos via Mercado Pago. Os usuário
 
 ## 🧠 Tecnologias Utilizadas
 
-- Python 3.11+
+- Python 3.12
 - Django 4.x
 - PostgreSQL
 - AWS EC2 para Deploy
