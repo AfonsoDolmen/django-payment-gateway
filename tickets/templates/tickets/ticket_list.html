@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Ingressos{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'tickets/style.css' %}">
+{% endblock %}
 
 {% block content %}
 <section class="w-100 px-3 py-2 ticket-section">
