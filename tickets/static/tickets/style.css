@@ -1,0 +1,5 @@
+@media screen and (max-width: 726px) {
+    .input-container > form {
+        width: 100% !important;
+    }
+}
