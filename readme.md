@@ -21,6 +21,7 @@ Sistema web para gestão de ingressos e pagamentos via Mercado Pago. Os usuário
 - Django 4.x
 - PostgreSQL
 - AWS EC2 para Deploy
+- Docker & Docker Compose
 - Mercado Pago SDK
 - HTML5 + CSS3 (Django templates)
 - Bootstrap
